@@ -1,9 +1,16 @@
 import requests
 import re
+import os
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 
-GOOGLE_API_KEY = "AIzaSyCanbTy604rBDDAVfMjA3JI9DTo_fQl7Ds"
-GOOGLE_CSE_ID = "91637fb8ded5642b2"
+load_dotenv()
+
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+GOOGLE_CSE_ID = os.environ.get("GOOGLE_CSE_ID")
+
+if not GOOGLE_API_KEY or not GOOGLE_CSE_ID:
+    raise RuntimeError("GOOGLE_API_KEY and GOOGLE_CSE_ID must be set as environment variables.")
 
 # Regex patterns for price extraction (₹, $, etc.)
 PRICE_PATTERNS = [

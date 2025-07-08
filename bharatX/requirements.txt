@@ -6,4 +6,5 @@ fuzzywuzzy
 python-Levenshtein
 selenium
 webdriver-manager
+python-dotenv
 
